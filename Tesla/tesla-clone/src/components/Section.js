@@ -1,20 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Section() {
+function Section({ title, description, leftBtnText, rightBtnText, backgroundImg}) {
   return (
-    <Wrap>
+    <Wrap bgImage={backgroundImg}>
         <ItemText>
-            <h1>Model S</h1>
-            <p>Order Online for Touchles Delivery</p>
+            <h1>{ title }</h1>
+            <p>{description }</p>
         </ItemText>
         <Buttons>
         <ButtonGroup>
             <LeftButton>
-                Custom Order
+               { leftBtnText } 
             </LeftButton>
             <RightButton>
-                Existing Inventory
+               { rightBtnText } 
             </RightButton>
         </ButtonGroup>
         <DownArrow src="/images/down-arrow.svg" />
@@ -36,6 +36,7 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: space-between; // 원래 horizontal 정렬 -> flex direction을 column으로 변경하면서 vertical 정렬
     align-items: center; // 원래 vertical 정렬 -> flex direction을 column으로 변경하면서 horizontal 정렬
+    background-image: ${props => `url("/images/${props.bgImage}")`}
 `
 
 const ItemText = styled.div`
