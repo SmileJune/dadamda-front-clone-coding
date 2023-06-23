@@ -1,0 +1,11 @@
+* {
+  font-family: "Rubik", sans-serif;
+  color: #393c41;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*padding, border 등을 박스 크기에 포함히기 위함 */
+}
+
+body {
+  width: 100%;
+}
