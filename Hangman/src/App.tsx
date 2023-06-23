@@ -51,7 +51,13 @@ function App() {
       setGuessedLetters([])
       setWordToGuess(getWord())
     }
-  })
+
+    document.addEventListener("keypress", handler)
+
+    return () => {
+      document.removeEventListener("keypress", handler)
+    }
+  }, [])
 
   return (
     <div style={{
