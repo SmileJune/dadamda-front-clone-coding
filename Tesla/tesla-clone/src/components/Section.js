@@ -1,26 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';
 
 function Section({ title, description, leftBtnText, rightBtnText, backgroundImg}) {
   return (
     <Wrap bgImage={backgroundImg}>
-        <ItemText>
-            <h1>{ title }</h1>
-            <p>{description }</p>
-        </ItemText>
-        <Buttons>
-        <ButtonGroup>
-            <LeftButton>
-               { leftBtnText } 
-            </LeftButton>
-            { rightBtnText &&
-                <RightButton>
-                { rightBtnText } 
-                </RightButton>
-            } {/* rightBtnText가 있다면 RightButton이 보이도록  */}
-        </ButtonGroup>
-        <DownArrow src="/images/down-arrow.svg" />
-        </Buttons>
+        <Fade bottom>
+            <ItemText>
+                <h1>{ title }</h1>
+                <p>{description }</p>
+            </ItemText>
+
+        </Fade>
+            <Buttons>
+                <Fade>
+                    <ButtonGroup>
+                        <LeftButton>
+                        { leftBtnText } 
+                        </LeftButton>
+                        { rightBtnText &&
+                            <RightButton>
+                            { rightBtnText } 
+                            </RightButton>
+                        } {/* rightBtnText가 있다면 RightButton이 보이도록  */}
+                    </ButtonGroup>
+                </Fade>
+            
+            <DownArrow src="/images/down-arrow.svg" />
+            </Buttons>
+       
     </Wrap>
   )
 }
@@ -44,6 +52,7 @@ const Wrap = styled.div`
 const ItemText = styled.div`
     padding-top: 10vh;
     text-align: center;
+    z-index: -1;
 `
 
 const ButtonGroup = styled.div`
